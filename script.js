@@ -1,12 +1,8 @@
 // variables
 var topics = ["sports", "movies", "funny", "drumming", "fail", "political"];
 var topic;
-
-  // Generic function giving the topic a name from the data-attribute
-  function alertTopicName() {
-    topicName = $(this).attr("data-name");
-    alert(alertTopicName);
-  }
+var topicName
+  
 
   // Calling the renderButtons function to display the intial buttons
   renderButtons();
@@ -50,11 +46,13 @@ var topic;
 
 
 // Event listener for all button elements excluding the add button button
-$("#buttonsGoHere").on("click", function() {
+$(".topic").on("click", function() {
+   // Adding a click event listener to all elements with a class of "movie"
+     $("#gifBox").empty();
       // In this case, the "this" keyword refers to the button that was clicked
-    // // var topicName = $(this).attr("data-name");
-    // alert(topicName);
-     
+        var topicName = $(this).attr("data-name");
+ 
+
       // Constructing a URL to search Giphy for gifs regarding that topic
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     topicName + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -66,6 +64,7 @@ $("#buttonsGoHere").on("click", function() {
       })
         // After the data comes back from the API
         .done(function(response) {
+
           // Storing an array of results in the results variable
           var results = response.data;
 
@@ -77,7 +76,7 @@ $("#buttonsGoHere").on("click", function() {
               // Creating a div with the class "item"
               var gifDiv = $("<div class='item'>");
 
-              // Storing the result item's rating
+              //store the rating here
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
@@ -105,18 +104,16 @@ $("#buttonsGoHere").on("click", function() {
 
 
 // function for when you click on the gif to pause it
-  $(".gif").on("click", function() {
-   var state = $(this).attr("data-state");
 
-      if (state === "still") {
-          $(this).attr("src", $(this).attr("data-animated"));
-           $(this).attr("src", animatedGifUrl);
-           $(this).attr("data-state", "animate");
-        } else {
-          var stillGifUrl = $(this).attr("data-state");
-          $(this).attr("src", stillGifUrl);
-           $(this).attr("data-state", "animate");
-
-        }
-      });
-
+$('body').on('click', '.gif', function() {
+    var src = $(this).attr("src");
+  if($(this).hasClass('playing')){
+     //stop
+     $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+     $(this).removeClass('playing');
+  } else {
+    //play
+    $(this).addClass('playing');
+    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+  }
+});

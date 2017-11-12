@@ -8,6 +8,9 @@ get an API key for giphy.com
 
 
 create functions to generate a button to link to API
+	-create callback function inside to check the rafings
 
 link the input to the button to generate searches
-	-create a function 
+	-have buttons store values in an array which we will pull from to add that to the api key for that particular search
+	
+create event listener to pause the gifs
