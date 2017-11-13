@@ -1,8 +1,8 @@
 // variables
 var topics = ["sports", "movies", "funny", "drumming", "fail", "political"];
 var topic;
-var topicName
-  
+var topicName;
+
 
   // Calling the renderButtons function to display the intial buttons
   renderButtons();
@@ -12,22 +12,27 @@ var topicName
 
         // delete topic search before searching for another
         $("#buttonsGoHere").empty();
-
         // Looping through the array of topics
         for (var i = 0; i < topics.length; i++) {
+          addButton(topics[i]);
+        }
 
-          // Then dynamicaly generating buttons for each topic in the array
-          var a = $("<button>");
+      }
+
+
+      function addButton(topicText) {
+            var a = $("<button>");
           // Adding a class of topic to our button
           a.addClass("topic");
           // Adding a data-attribute
-          a.attr("data-name", topics[i]);
+          a.attr("data-name", topicText);
           // Providing the initial button text
-          a.text(topics[i]);
+          a.text(topicText);
           // Adding the button to the HTML
           $("#buttonsGoHere").append(a);
-        }
+          startListener();
       }
+
 
 
       // This function handles events where add topic button is clicked
@@ -39,23 +44,26 @@ var topicName
         // Adding the toic from the textbox to our array
         topics.push(topic);
         // Calling renderButtons which handles the processing of our topic array
-        renderButtons();
+        addButton(topic);
         // empty the input box
-        ("#topic-input").empty();
+        // $("#topic-input").empty();
+        $("#topic-input").val("");
       });
 
 
-// Event listener for all button elements excluding the add button button
+
+function startListener() {
+// Event listener for all topic buttons
 $(".topic").on("click", function() {
-   // Adding a click event listener to all elements with a class of "movie"
-     $("#gifBox").empty();
+  // empty the gifs from gifBox
+   $("#gifBox").empty();
       // In this case, the "this" keyword refers to the button that was clicked
-        var topicName = $(this).attr("data-name");
- 
+      var topicName = $(this).attr("data-name");
+
 
       // Constructing a URL to search Giphy for gifs regarding that topic
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    topicName + "&api_key=dc6zaTOxFJmzC&limit=10";
+      topicName + "&api_key=dc6zaTOxFJmzC&limit=10";
 
       // Performing our AJAX GET request
       $.ajax({
@@ -64,7 +72,7 @@ $(".topic").on("click", function() {
       })
         // After the data comes back from the API
         .done(function(response) {
-
+          console.log(response.data);
           // Storing an array of results in the results variable
           var results = response.data;
 
@@ -101,19 +109,23 @@ $(".topic").on("click", function() {
 
         });
       });
+}
 
 
 // function for when you click on the gif to pause it
 
 $('body').on('click', '.gif', function() {
-    var src = $(this).attr("src");
+  var src = $(this).attr("src");
   if($(this).hasClass('playing')){
      //stop
      $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
      $(this).removeClass('playing');
-  } else {
+   } else {
     //play
     $(this).addClass('playing');
     $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
   }
 });
+
+
+
