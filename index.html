@@ -1,64 +1,74 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>GIPHY</title>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>GIPHY</title>
 
-	
-	<!-- Added a link to Bootstrap-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs" crossorigin="anonymous">
-	<!-- link to our css -->
-	<link rel="stylesheet" href="style.css">
-	 <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-
-	<div class="row">
-		<div class="col-md-6" id="buttonsGoHere">
-			<!-- <h1>Buttons go here</h1> -->
-		</div>
-
-
-		<!-- button and input go here -->
-		<div class="col-md-6">
-			<div id="inputBox"> 
-				<!-- <div class="panel panel-header"> -->
-					<h1>Search for Gifs!</h1>
-					<p>Click on a button up at the top or create your own buttons to search for some Gifs!</p>
-					<form id="topic-form">
-						<input type="text" id="topic-input"><br>
-
-						<!-- Button triggers new topic to be added -->
-						<input id="add-topic" type="submit" value="Add Topic">
-					</form>
-				</div>
-			</div>
-
-
-
-
-			<div class="row">
-				<div class="col-md-12">
-						<!-- gifs go here -->
-							<div id="gifBox">
-								<!-- gifs be goin up in here -->	
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-  
-
-
-		<!-- link script file and jQuery -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<!-- Added a link to Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- link to our css -->
+		<link rel="stylesheet" href="style.css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="script.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<div class='container-fluid'>
+
+			<div class="row text-center">
+				<div class="col-md-6 col-sm-12 col-xs-12" id="buttonsGoHere">
+					<!-- <h1>Buttons go here</h1> -->
+				</div>
+
+				<div class="col-md-2 col-sm-0 col-xs-0">
+				</div>
+
+				<!-- button and input go here -->
+				<div class="col-md-3 col-sm-12 col-xs-12" id="inputBox">
+
+					<!-- <div class="panel panel-header"> -->
+						<h1>Search for Gifs!</h1>
+						<p>Click on a button up at the top or create your own buttons to search for some Gifs!</p>
+						<form id="topic-form">
+							<input type="text" id="topic-input"><br>
+							<!-- if you want to see all gifs -->
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id='iAm18'><span>I'm over 18 and I want to see all gifs not just the PG & G rated</span>
+								</label>
+							</div>
+
+							<!-- Button triggers new topic to be added -->
+							<button id="add-topic" class='btn btn-lg' type="submit" value="Add Topic">Submit</button>
+							
+						</form>
+					</div>
+				</div>
 
 
-	</body>
-	</html>
+
+				<div class="row text-center">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<!-- gifs go here -->
+						<div id="gifBox">
+							<!-- gifs be goin up in here -->	
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+
+			<!-- link script file and jQuery -->
+
+			
+			<script src="script.js"></script>
+
+
+		</body>
+		</html>

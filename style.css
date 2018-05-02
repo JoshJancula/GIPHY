@@ -1,8 +1,6 @@
 /*contains the input and directions*/
 #inputBox {
-	float: right;
 	text-align: center;
-	margin-right: 75px;	
 }
 
 h1 {
@@ -11,6 +9,12 @@ h1 {
 
 p {
 	color: #BAC0CB;
+}
+
+.checkbox {
+	color: #BAC0CB;
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 
@@ -51,5 +55,17 @@ button {
 	margin-top: 10px;
 }
 
+@media screen and (max-width: 666px) and (min-width: 250px) and (-webkit-min-device-pixel-ratio: 2) {
+	#gifBox {
+		text-align: center;
+	}
+
+	p {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+
+	
+}
 
 
