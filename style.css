@@ -1,6 +1,10 @@
 /*contains the input and directions*/
 #inputBox {
 	text-align: center;
+	float: right;
+	margin-right: 10%;
+	margin-top: -5%;
+	width: 28%;
 }
 
 h1 {
@@ -55,7 +59,33 @@ button {
 	margin-top: 10px;
 }
 
+/*tables*/
+@media screen and (max-width: 900px) and (min-width: 601px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#inputBox {
+		width: 100%;
+		float: none;
+
+	}
+
+	#buttonsGoHere {
+		text-align: center;
+		margin-bottom: 3%;
+	}
+
+	#gifBox {
+		text-align: center;
+	}
+
+}
+
+/*phones*/
 @media screen and (max-width: 666px) and (min-width: 250px) and (-webkit-min-device-pixel-ratio: 2) {
+	#inputBox {
+		margin-top: 0;
+		margin-right: 0;
+		width: 100%;
+	}
 	#gifBox {
 		text-align: center;
 	}
@@ -63,6 +93,10 @@ button {
 	p {
 		margin-left: 15%;
 		margin-right: 15%;
+	}
+
+	#buttonsGoHere {
+		text-align: center;
 	}
 
 	
